@@ -1,0 +1,82 @@
+section#header_top
+	.logo-outer-wrapper
+		.logo-wrapper
+			.row.no-margin-bottom
+				.col.s12.m12.l12
+					.logo-left.col.l3
+						h1
+							a(href='http://demo.smooththemes.com/magazon')
+								img(src='../img/logo.png', alt='Logo')
+					.logo-right-widget.col.l9
+						.logo-right-ads.right
+							#text-15.widget-container.widget_text
+								h1.textwidget
+									a(href='#')
+										img(src='../img/header_ads.png', alt='468 x 60 Ads')
+					.clear
+			.clear
+	.row
+		.col.s12.m12.l12
+			.menu-wrapper
+				.row
+					.col.s12.m12.l12
+						nav
+							.nav-wrapper
+								a.button-collapse(href='#', data-activates='mobile-demo')
+									i(class="fa fa-bars" aria-hidden="true")
+								ul.left.hide-on-med-and-down
+									li
+										a(href='/') Home
+									li
+										a(href='/about') About
+									li
+										a(href='/blog') Blog
+									li
+										a(href='#') Contact
+									li
+										a.dropdown-button(href='#', data-activates='dropdown1')
+											| Dropdown
+										ul#dropdown1.dropdown-content
+											li
+												a(href='#!') one
+											li
+												a(href='#!') two
+											li.divider
+											li
+												a(href='#!') three
+
+
+
+								ul#mobile-demo.side-nav
+									li
+										a(href='/') Home
+									li
+										a(href='/about') About
+									li
+										a(href='#') Blog
+									li
+										a(href='#') Contact
+									li
+										a.dropdown-button(href='#', data-activates='dropdown2')
+											| Dropdown
+										ul#dropdown2.dropdown-content
+											li
+												a(href='#!') one
+											li
+												a(href='#!') two
+											li.divider
+											li
+												a(href='#!') three
+								.row
+									.col.s8.m6.l4.right
+										//- <form action="search">
+										//- <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+										//- //- <button>Search</button>
+										//- </form>
+										<form action="../../search" class="searchbox">
+										//- <input type="text" name="q" id="tipue_search_input" placeholder="Search......" class="searchbox-input"  autocomplete="off"  onkeyup="buttonUp();" required>
+										<input type="text" name="q" placeholder="Search......" id="tipue_search_input" autocomplete="off" class="searchbox-input" onkeyup="buttonUp();" required>
+										<input type="submit" class="searchbox-submit" value="GO">
+										<span class="searchbox-icon fa fa-search" aria-hidden="true">GO</span>
+										</form>
+

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	.row
+		.col.s12.m12.l12
+			h1.title-header= entry.title
+			.content-entry
+				!= entry.body
+			hr
+			p.tag= entry.tag
+

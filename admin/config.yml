@@ -1,0 +1,169 @@
+backend:
+  name: netlify-api
+  url: http://localhost:8080
+
+production:
+  backend:
+    name: github-api
+    repo: ayenzky/blogsearch # Path to your Github repository
+    branch: master # Branch to update (master by default)
+
+media_folder: "assets/img/uploads" # Folder where user uploaded files should go
+public_folder: "assets"
+
+collections: # A list of collections the CMS should be able to edit
+  - name: "sitedata"
+    label: "Site Information"
+    files:
+      - name: "sitedata"
+        label: "Site Information"
+        file: "data/site.json"
+        description: "edit site setting"
+        fields:
+          - label: "Site Information"
+            name: "sitedata"
+            widget: "list"
+            fields:
+              - {label: "Favicon", name: "icon", widget: "image", media_folder: "assets/img"}
+              - {label: "Site Logo", name: "logo", widget: "image", media_folder: "assets/img"}
+              - {label: "Site name", name: "sitename", widget: "string"}
+              - {label: "Website Description", name: "metadesc", widget: "string"}
+              - {label: "Author", name: "metauthor", widget: "string"}
+              - {label: "Keywords", name: "metakeyword", widget: "string"}
+              - {label: "Footer", name: "footer", widget: "markdown"}
+              - {label: "Google Analytics", name: "analytics", widget: "markdown"}
+  # - name: "slide"
+  #   label: "Image Slider"
+  #   files:
+  #     - name: "slider"
+  #       label: "Image Slide"
+  #       file: "data/slider.json"
+  #       description: "image slider"
+  #       fields:
+  #         - label: "Default Slider Text"
+  #           name: "slidetxt"
+  #           widget: "list"
+  #           fields:
+  #             - {label: "Image", name: "sliderlogo", widget: "image", media_folder: "assets/img"}
+  #             - {label: "Slider Text", name: "slidertxt", widget: "string"}
+  #             - {label: "Slider Description", name: "sliderdesc", widget: "string"}
+  #         - label: "Image Slider"
+  #           name: "slide"
+  #           widget: "list"
+  #           fields:
+  #             - {label: "Image", name: "image", widget: "image", media_folder: "assets/img"}
+  #             - {label: "Name", name: "name", widget: "string"}
+  # - name: "services" # Used in routes, ie.: /admin/collections/:slug/edit
+  #   label: "Services"  # Used in the UI, ie.: "New Post"
+  #   folder: "services" # The path to the folder where the documents are stored
+  #   create: false # Allow users to create new documents in this collection
+  #   fields: # The fields each document in this collection have
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Banner", name: "banner", widget: "image", class: "image featured"}
+  #     - {label: "Short Description", name: "shortdesc", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+  #     # - name: "listservices"
+  #     #   label: "List Services"
+  #     #   widget: "list"
+  #     #   fields:
+  #     #     - {label: "Icon", name: "icon", widget: "string"}
+  #     #     - {label: "Name", name: "subtitle", widget: "string"}
+  #     #     - {label: "Tagline", name: "tagline", widget: "string"}
+  # - name: "work" # Used in routes, ie.: /admin/collections/:slug/edit
+  #   label: "Featured Work"  # Used in the UI, ie.: "New Post"
+  #   folder: "featuredwork" # The path to the folder where the documents are stored
+  #   create: false # Allow users to create new documents in this collection
+  #   fields: # The fields each document in this collection have
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Banner", name: "banner", widget: "image", class: "image featured", media_folder: "assets/img"}
+  #     - {label: "Short Description", name: "shortdesc", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+  # - name: "news" # Used in routes, ie.: /admin/collections/:slug/edit
+  #   label: "News"  # Used in the UI, ie.: "New Post"
+  #   folder: "news" # The path to the folder where the documents are stored
+  #   create: true # Allow users to create new documents in this collection
+  #   fields: # The fields each document in this collection have
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Banner", name: "banner", widget: "image", class: "image featured", media_folder: "assets/img"}
+  #     - {label: "Short Description", name: "shortdesc", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+  #   meta: # Meta data fields. Just like fields, but without any preview element
+  #     - {label: "Publish Date", name: "date", widget: "date"}
+  #     - {label: "Categories", name: "categories", widget: "string"}
+  # # - name: "contactus" # Used in routes, ie.: /admin/collections/:slug/edit
+  # #   label: "Contact Form"  # Used in the UI, ie.: "New Post"
+  # #   folder: "contact" # The path to the folder where the documents are stored
+  # #   create: false # Allow users to create new documents in this collection
+  # #   fields: # The fields each document in this collection have
+  # #     - {label: "Title", name: "title", widget: "string"}
+  # #     - {label: "Short Description", name: "shortdesc", widget: "string"}
+  # #     - {label: "Body", name: "body", widget: "markdown"}
+  - name: "events"
+    label: "Events"
+    files:
+      - name: "client"
+        label: "Events"
+        file: "data/events.json"
+        description: "add event on calendar"
+        fields:
+          - label: "Events"
+            name: "events"
+            widget: "list"
+            fields:
+              - {label: "Month", name: "month", widget: "month"}
+              - {label: "Day", name: "day", widget: "day"}
+              - {label: "Year", name: "year", widget: "year"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
+  - name: "technology" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Technology"  # Used in the UI, ie.: "New Post"
+    folder: "technology" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Banner", name: "banner", widget: "image", class: "image featured", media_folder: "assets/img"}
+      - {label: "Short Description", name: "shortdesc", widget: "shortdsc"}
+      - {label: "Body", name: "body", widget: "markdown"}
+    meta: # Meta data fields. Just like fields, but without any preview element
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Categories", name: "tag", widget: "string"}
+  - name: "fashion" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Fashion"  # Used in the UI, ie.: "New Post"
+    folder: "fashion" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Banner", name: "banner", widget: "image", class: "image featured", media_folder: "assets/img"}
+      - {label: "Short Description", name: "shortdesc", widget: "shortdsc"}
+      - {label: "Body", name: "body", widget: "markdown"}
+    meta: # Meta data fields. Just like fields, but without any preview element
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Categories", name: "tag", widget: "string"}
+  - name: "music" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Music"  # Used in the UI, ie.: "New Post"
+    folder: "music" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Banner", name: "banner", widget: "image", class: "image featured", media_folder: "assets/img"}
+      - {label: "Short Description", name: "shortdesc", widget: "shortdsc"}
+      - {label: "Body", name: "body", widget: "markdown"}
+    meta: # Meta data fields. Just like fields, but without any preview element
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Categories", name: "tag", widget: "string"}
+  - name: "education" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Education"  # Used in the UI, ie.: "New Post"
+    folder: "education" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Banner", name: "banner", widget: "image", class: "image featured", media_folder: "assets/img"}
+      - {label: "Short Description", name: "shortdesc", widget: "shortdsc"}
+      - {label: "Body", name: "body", widget: "markdown"}
+    meta: # Meta data fields. Just like fields, but without any preview element
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Categories", name: "tag", widget: "string"}

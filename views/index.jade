@@ -1,0 +1,291 @@
+extends layout
+
+block content
+	.row
+		.slider-post.col.s12.m12.l12
+			.owl-carousel.owl-theme
+				div
+					a(href='#')
+						img(alt='', data-src='../img/post-sample1-642x336.jpg').owl-lazy
+					.slide-text
+						h5.post-title
+							a(title='Permalink to Post Reviews Stars', rel='bookmark', href='/movies-cinema-reviews/') Post Reviews Stars
+						.post-meta
+							span.date
+								i(class="fa fa-calendar" aria-hidden="true")
+								|	Jan 26, 2013
+							span.author
+								i(class="fa fa-user" aria-hidden="true")
+								a(href='#', title='Posts by admin', rel='author') admin
+							.post-excerpt
+								p
+									| This is  custom captions
+
+
+				div
+					a(href='#')
+						img(alt='', data-src='../img/post-sample1-642x336.jpg').owl-lazy
+					.slide-text
+						h5.post-title
+							a(title='Permalink to Post Reviews Stars', rel='bookmark', href='/movies-cinema-reviews/') Macbook Pro Review
+						.post-meta
+							span.date
+								i(class="fa fa-calendar" aria-hidden="true")
+								|	Jan 27, 2013
+							span.author
+								i(class="fa fa-user" aria-hidden="true")
+								a(href='#', title='Posts by admin', rel='author') admin
+							.post-excerpt
+								p
+									| This is  custom captions
+
+
+		.clear
+	.row
+		.col.l12
+			h4.title TECHNOLOGY
+		.blog-wrap
+			each tech in technology.sort('date', 'desc').slice(0,3)
+				.row.blog
+					.post-thumbnail.col.l6
+						span.had-thumb
+							a(href= tech.permalink, title='Permalink to Post Reviews Stars', rel='bookmark')
+								img(alt='', src= tech.banner)
+						.clear
+					.post-content.col.l6
+						h5.post-title
+							a(title= tech.title, rel='bookmark', href= tech.permalink)= tech.title
+						.post-meta
+							span.date
+								i(class="fa fa-calendar" aria-hidden="true")= dateFormat(tech.date, 'LL')
+								//- time(date= post.date)= post.date
+							span.author
+								i(class="fa fa-user" aria-hidden="true")
+								a(href='#', title='Posts by'+" "+ tech.author, rel='author')= tech.author
+
+						.post-excerpt
+							p!= postExcerpt(tech.body, 100)
+						.read-more
+							a.read-more-button(title= tech.title, href= tech.permalink) Read More
+				.clear
+	.row
+		.col.left.l6.no-padding
+			.row
+				.col.l12
+					h5.title FASHION
+			.row
+				.col.l12
+						each fash in fashion.sort('date', 'desc').slice(0, 1)
+							.post.type-post
+								.post-thumbnail.hover-thumb
+									span.had-thumb
+										a(href= fash.permalink, title= fash.title, rel='bookmark')
+											img(alt='', src= fash.banner)
+									.clear
+								.post-content
+									h6.post-title
+										a(title= fash.title, rel='bookmark', href= fash.permalink)= fash.title
+									.post-meta
+										span.date
+											i(class="fa fa-calendar" aria-hidden="true")= dateFormat(fash.date, 'LL')
+										span.author
+											i(class="fa fa-user" aria-hidden="true")
+											a(href='#', title='Posts by'+" "+fash.author, rel='author')= fash.author
+									.post-excerpt
+										p!= postExcerpt(fash.body, 100)
+									.read-more
+										a.read-more-button(title= fash.title, href= fash.permalink) Read More
+								.clear
+						each fash in fashion.sort('date', 'desc').slice(1, 2)
+							.small-post-wrapper.type-post
+								.small-post-thumb.hover-thumb
+									span.had-thumb
+										a(href= fash.permalink, title= fash.title, rel='bookmark')
+											img(alt='', src= fash.banner, width="50", height="50")
+									.clear
+								.small-post-content
+									p.small-post-title
+										a(title= fash.title, rel='bookmark', href= fash.permalink)= fash.title
+									.small-post-meta
+										span.date
+											i(class="fa fa-calendar" aria-hidden="true")= dateFormat(fash.date, 'LL')
+								.clear
+							//- .small-post-wrapper.type-post
+							//- 	.small-post-thumb.hover-thumb
+							//- 		span.had-thumb
+							//- 			a(href='/dolor-sit-amet-adipiscing/', title='Permalink to Dolor sit amet adipiscing', rel='bookmark')
+							//- 				img(alt='', src='../img/5532570910_0c4fb8833f_b-50x50.jpg')
+							//- 		.clear
+							//- 	.small-post-content
+							//- 		p.small-post-title
+							//- 			a(title='Permalink to Dolor sit amet adipiscing', rel='bookmark', href= fash.permalink) Porttitor ligula eget lacinia
+							//- 		.small-post-meta
+							//- 			span.date
+							//- 				i(class="fa fa-calendar" aria-hidden="true")
+							//- 				|	Jan 26, 2013
+							//- 	.clear
+
+
+
+		.col.right.l6.no-padding
+			.row
+				.col.l12
+					h5.title MUSIC
+			.row
+				.col.l12
+						each mdata in music.sort('date', 'desc').slice(0, 1)
+							.post.type-post
+								.post-thumbnail.hover-thumb
+									span.had-thumb
+										a(href="/posts/#{mdata.title}", title= mdata.title, rel='bookmark')
+											img(alt='', src= mdata.banner)
+									.clear
+								.post-content
+									h6.post-title
+										a(title= mdata.title, rel='bookmark', href="/posts/#{mdata.title}")= mdata.title
+									.post-meta
+										span.date
+											i(class="fa fa-calendar" aria-hidden="true")= dateFormat(mdata.date, 'LL')
+										span.author
+											i(class="fa fa-user" aria-hidden="true")
+											a(href='#', title='Posts by'+" "+mdata.author, rel='author')= mdata.author
+									.post-excerpt
+										p!= postExcerpt(mdata.body, 100)
+									.read-more
+										a.read-more-button(title= mdata.title, href= mdata.permalink) Read More
+								.clear
+
+						each mdata in music.sort('date', 'desc').slice(1, 3)
+							.small-post-wrapper.type-post
+								.small-post-thumb.hover-thumb
+									span.had-thumb
+										a(href="/posts/#{mdata.title}", title= mdata.title, rel='bookmark')
+											img(alt='', src= mdata.banner, width="50", height="50")
+									.clear
+								.small-post-content
+									p.small-post-title
+										a(href= mdata.permalink, title= mdata.title, rel='bookmark')= mdata.title
+									.small-post-meta
+										span.date
+											i(class="fa fa-calendar" aria-hidden="true")= dateFormat(mdata.date, 'LL')
+								.clear
+							//- .small-post-wrapper.type-post
+							//- 	.small-post-thumb.hover-thumb
+							//- 		span.had-thumb
+							//- 			a(href='/dolor-sit-amet-adipiscing/', title='Permalink to Dolor sit amet adipiscing', rel='bookmark')
+							//- 				img(alt='', src='../img/5532570910_0c4fb8833f_b-50x50.jpg')
+							//- 		.clear
+							//- 	.small-post-content
+							//- 		p.small-post-title
+							//- 			a(title='Permalink to Dolor sit amet adipiscing', rel='bookmark', href='/dolor-sit-amet-adipiscing/') Porttitor ligula eget lacinia
+							//- 		.small-post-meta
+							//- 			span.date
+							//- 				i(class="fa fa-calendar" aria-hidden="true")
+							//- 				| Jan 26, 2013
+								.clear
+	.row
+		.col.l12.no-padding
+			.text-box
+				.text-content
+					.row
+						.col.l6
+							a(href='#')
+								img(alt='', src='../img/300.jpg')
+						.col.l6
+							a(href='#')
+								img(alt='', src='../img/ads_yahoo.gif')
+						.clear
+		.clear
+
+	.row
+		.col.l12
+			h5.title Education
+		.blog-wrap
+			.row
+					each edu in education.sort('date', 'desc').slice(0, 2)
+						.col.l6
+							.post.type-post
+								.post-thumbnail.hover-thumb
+									span.had-thumb
+										a(href= edu.permalink, title= edu.title, rel='bookmark')
+											img(alt='', src= edu.banner)
+									.clear
+								.post-content
+									h6.post-title
+										a(title= edu.title, rel='bookmark', href= edu.permalink)= edu.title
+									.post-meta
+										span.date
+											i(class="fa fa-calendar" aria-hidden="true")= dateFormat(edu.date, 'LL')
+										span.author
+											i(class="fa fa-user" aria-hidden="true")
+											a(href='#', title='Posts by'+" "+edu.author, rel='author')= edu.author
+									.post-excerpt
+										p= postExcerpt(edu.body, 100)
+									.read-more
+										a.read-more-button(title= edu.title, href= edu.permalink) Read More
+								.clear
+				//- .col.l6
+				//- 	.post.type-post
+				//- 		.post-thumbnail.hover-thumb
+				//- 			span.had-thumb
+				//- 				a(href='/fermentum-massa-justo/', title='Permalink to Fermentum massa justo', rel='bookmark')
+				//- 					img(alt='', src='../img/4639249150_83d0757d67_b-642x336.jpg')
+				//- 			.clear
+				//- 		.post-content
+				//- 			h6.post-title
+				//- 				a(title='Permalink to Fermentum massa justo', rel='bookmark', href='/fermentum-massa-justo/') Sed posuere consectetur est
+				//- 			.post-meta
+				//- 				span.date
+				//- 					i(class="fa fa-calendar" aria-hidden="true")
+				//- 					|	Jan 26, 2013
+				//- 				span.author
+				//- 					i(class="fa fa-user" aria-hidden="true")
+				//- 					a(href='#', title='Posts by admin', rel='author') admin
+				//- 			.post-excerpt
+				//- 				p
+				//- 					| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam.
+				//- 			.read-more
+				//- 				a.read-more-button(title='Permalink to Fermentum massa justo', href='/fermentum-massa-justo/') Read More
+				//- 		.clear
+				.clear
+	.clear
+
+	//- .row
+	//- 	.col.l12
+	//- 		h5.title Food
+	//- 	.blog-wrap
+	//- 		.row
+	//- 				each foods in site.post.food.sort(food, {by: 'date'})
+	//- 					.col.l6
+	//- 						.post.type-post
+	//- 							.post-thumbnail.hover-thumb
+	//- 								span.had-thumb
+	//- 									a(href="/posts/#{foods.title}", title= foods.title, rel='bookmark')
+	//- 										img(alt='', src= foods.banner)
+	//- 								.clear
+	//- 							.post-content
+	//- 								h6.post-title
+	//- 									a(title= foods.title, rel='bookmark', href="/posts/#{foods.title}")= foods.title
+	//- 								.post-meta
+	//- 									span.date
+	//- 										i(class="fa fa-calendar" aria-hidden="true")= dateFormat(foods.date, 'LL')
+	//- 									span.author
+	//- 										i(class="fa fa-user" aria-hidden="true")
+	//- 										a(href='#', title='Posts by'+" "+foods.author, rel='author')= foods.author
+	//- 								.post-excerpt
+	//- 									p= foods.shortdesc
+	//- 								.read-more
+	//- 									a.read-more-button(title= foods.title, href="/posts/#{foods.title}") Read More
+	//- 							.clear
+	//- 			.clear
+	//- .clear
+	//- .row
+	//- 	each post in site.posts
+	//- 		a.post(href= post._url)
+	//- 			h2= post.title
+	//- 			date= post.date
+	//- 			!= post.content
+
+
+
+

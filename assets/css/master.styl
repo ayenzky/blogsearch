@@ -1,0 +1,497 @@
+@import '_settings'
+
+normalize-css()
+base()
+
+
+body
+  color: black
+  font-weight:400
+  background-color:#eee
+
+.container
+  background-color:#fff
+  #main-content
+    padding-bottom: 40px
+    > .row
+      margin-bottom:0px
+
+.container section
+  width:100%
+
+
+
+
+.clear
+  clear:both
+
+img
+  max-width:100%
+
+
+nav ul li, nav a, h1, h2, h3, h4, h5, h6
+  font-family: $lato
+  font-weight: 400
+
+nav .nav-wrapper ul li a
+  font-weight: 300
+  text-transform: uppercase
+
+body .menu-wrapper .searchbox
+  position:relative
+  min-width:50px
+  width:0%
+  height:40px
+  float:right
+  line-height:0
+  margin-top: 5px
+  margin-right: 0px
+  overflow:hidden
+  -webkit-transition: width 0.3s
+  -moz-transition: width 0.3s
+  -ms-transition: width 0.3s
+  -o-transition: width 0.3s
+  transition: width 0.3s
+
+
+body .menu-wrapper .searchbox-input
+  top:0
+  right:0
+  border:0
+  outline:0
+  background:#fff
+  width:100% !important
+  height:40px
+  margin:0
+  padding:0px 55px 0px 20px
+  border-radius:2px
+  -webkit-border-radius:2px
+  -moz-border-radius:2px
+  -ms-border-radius:2px
+  -o-border-radius:2px
+  color:gray
+
+body .menu-wrapper .searchbox-input::-webkit-input-placeholder
+  color: silver
+
+body .menu-wrapper .searchbox-input:-moz-placeholder
+  color: silver
+
+body .menu-wrapper .searchbox-input::-moz-placeholder
+  color: silver
+
+body .menu-wrapper .searchbox-input:-ms-input-placeholder
+  color: silver
+
+
+body .menu-wrapper .searchbox-icon.fa::before
+  font-size:22px
+
+body .menu-wrapper .searchbox-icon
+  width:50px
+  height:40px
+  display:block
+  position:absolute
+  top:0
+  font-size:0px
+  right:0
+  padding:0
+  margin:0
+  border:0
+  outline:0
+  line-height:1.8
+  text-align:center
+  cursor:pointer
+  color:#dcddd8
+  background:#212121
+
+
+body .menu-wrapper .searchbox-submit
+  width:50px
+  height:40px
+  display:block
+  position:absolute
+  top:0
+  font-family:verdana
+  font-size:22px
+  right:0
+  padding:0
+  margin:0
+  border:0
+  outline:0
+  line-height:1.8
+  text-align:center
+  cursor:pointer
+  color:#dcddd8
+  background:#212121
+
+
+body .menu-wrapper .searchbox-open
+    width:100%
+
+
+body .menu-wrapper .byline
+  position:absolute
+  top:150px
+  left:30%
+  text-align:center
+  font-size:18px
+
+body .menu-wrapper .byline a
+  text-decoration:none
+  color: #d74b4b
+
+
+.no-padding-right
+  padding-right:$no-padding !important
+
+.no-padding-left
+  padding-left:$no-padding !important
+
+.no-padding-top
+  padding-top:$no-padding !important
+
+.no-padding-bottom
+  padding-bottom:$no-padding !important
+
+.no-padding: $no-padding !important
+
+.no-margin-bottom
+  margin-bottom:$no-padding !important
+
+.logo-wrapper .logo-left
+  margin-top:1.5em
+
+
+.blog-wrap .blog
+
+  div img
+    max-width:100%
+
+.small-post-meta, .widget-post-meta
+  margin-top:2px
+  padding:2px
+  color:#ccc
+  font-size:14px
+  font-weight:600
+
+  span i::before
+    margin-right:4px
+
+
+.post-meta
+    border-top:1px solid #f1f1f1
+    border-bottom:1px solid #f1f1f1
+    padding:2px
+    color:#ccc
+    font-size:14px
+    font-weight:600
+
+    a
+      color:#ccc
+
+    span
+      margin-right:15px
+      font-family:lato
+      text-transform:capitalize
+    span i::before
+      margin-right:4px
+
+.small-post-wrapper
+  border-top:1px solid #eee
+  margin-top:25px
+  padding-top:18px
+
+.small-post-thumb
+  float: left
+  margin-right: 15px
+
+
+.small-post-content
+  overflow: hidden
+  p
+    margin: $no-padding
+  .small-post-meta
+    font-size:12px
+
+
+.widget-post-thumb
+  float: left
+  margin-right: 15px
+
+
+.widget-post-wrapper, .feedEkList li
+  border-bottom: 1px solid #E5E5E5
+  padding-bottom: 15px
+  margin-bottom: 15px
+  overflow: hidden
+  width: 100%
+
+.itemDate
+  margin-top: 2px
+  padding: 2px
+  color: #ccc
+  font-size: 14px
+  font-weight: 400
+
+
+.itemDate::before
+  content: "\f073"
+  font-family:FontAwesome
+  margin-right:4px
+
+.itemTitle
+  font-size:16px
+
+
+.widget-post-content
+  overflow: hidden
+  widget-post-title
+    margin:0
+
+
+.video-thumb img
+  width: 50px
+  height: 50px
+
+
+.row .tabs
+  .indicator
+    background-color: black
+  .tab
+    a
+      color: #FFFFFF
+      background-color: black
+    :hover
+      color: #FFFFFF
+    .active
+      background-color: #039be5
+
+#subscribe form
+  .emailadd
+    width:70%
+    height:42px
+    outline:none
+    padding:0 5px
+    border:1px solid #e5e5e5
+    border-right:none
+  .submit
+    float:right
+    width:30%
+    height:42px
+    border:none
+    background-color: #222222
+    color:#fff
+    font-family: $lato !important
+    padding: $no-padding 5px
+    font-weight:300
+
+#tag .tagcloud
+  a
+    padding:5px
+    margin:2px
+    display:inline-block
+    color:#fff
+    background-color: #039BE5
+
+#footer
+  padding-top:20px
+  background-color: black
+  color:#fff
+  section
+    max-width:1170px
+    margin:0px auto
+
+  #copyright
+    background-color:#1F1F1F
+    .row
+      margin-bottom: 0px
+
+
+
+
+  #social li
+    text-align:center
+    width:35px
+    height:35px
+    line-height:2.2
+    display:inline-block
+    border-radius:10px * 5
+    background-color:#2B2B2B
+
+    a
+      color:#fff
+      display:block
+
+  #contact-info li i
+    float:left
+    margin-top:4px
+    width:20px
+    text-align:center
+    margin-right:6px
+
+.slide-text
+  position:absolute
+  bottom:0px
+  width:100%
+  text-align:left
+  padding:15px
+  background-color: rgba(0, 0, 0, 0.5)
+
+  .post-meta
+    border:none
+
+
+/* Custom calendar elements */
+
+.calendar
+    text-align center
+    position relative
+    a
+        text-decoration none
+    h2
+        font-size 22px
+        line-height 20px
+        margin 4px 0
+        text-transform uppercase
+        &.title
+            text-transform uppercase
+            font-size 13px
+            font-weight 300
+            letter-spacing 3px
+            color #777
+            padding 20px
+            background #fff
+            border-bottom 1px solid #ddd
+            border-top 5px solid #039BE5
+            box-shadow 0 1px rgba(255,255,255,0.9)
+            margin-bottom 30px
+            margin-top 0px
+    h3
+        font-size 24px
+        line-height 24px
+        margin 5px 0
+    table
+        border-spacing 0
+        width 100%
+    header
+        position relative
+        border-top 4px solid #039BE5
+        border-bottom 1px solid #d0d0d0
+        padding 15px 0px
+    thead
+        td
+            font-weight 600
+            text-transform uppercase
+    tbody
+        color #7c8a95
+        td
+            &:hover
+              background-color: #039BE5
+              color:#fff
+              &:after
+                background-color:#fff
+
+
+    td
+        height 50px
+        line-height 3
+        text-align center
+        width 50px
+        padding 0px
+        border-radius:0px
+    .current-day
+        background #039BE5
+        color #f9f9f9
+    .event
+        cursor pointer
+        position relative
+        &:after
+            background #039BE5
+            border-radius 50%
+            bottom 8px
+            display block
+            content ''
+            height 8px
+            left 50%
+            margin -4px 0 0 -4px
+            position absolute
+            width 8px
+        &.current-day
+            &:after
+                background #f9f9f9
+    .btn-prev
+        left 30px
+    .btn-next
+        right 35px
+    .list
+        margin-top 0px
+        position absolute
+        top 0px
+        height 100% !important
+        background-color #f6f6f6
+        z-index 1
+    .close
+        color #fff
+        position absolute
+        right 5px
+        top 10px
+        float right
+        border 1px solid #039BE5
+        background-color #039BE5
+        padding 5px
+    .day-event
+        width 100%
+        padding-top 0px
+        padding-bottom 0px
+        margin-bottom 0px
+        display none
+        p
+            padding-left 20px
+            padding-right 20px
+            padding-bottom 20px
+        span
+            font-size 12px
+        button
+            position relative
+            vertical-align top
+            width 100%
+            height 50px
+            padding 0
+            font-size 18px
+            color white
+            text-align center
+            text-shadow 0 1px 2px rgba(0, 0, 0, 0.25)
+            background #c0392b
+            border 0
+            border-bottom 2px solid #b53224
+            cursor pointer
+            -webkit-box-shadow inset 0 -2px #b53224
+            box-shadow inset 0 -2px #b53224
+
+.calendar-container
+    height 538px
+    left 50%
+    margin -255px 0 0 -245px
+    position absolute
+    top 45%
+    width 510px
+
+.calendar .btn-prev,
+.calendar .btn-next
+    border 2px solid #cbd1d2
+    border-radius 50%
+    color #cbd1d2
+    height 32px
+    font-size 22px
+    line-height 28px
+    margin -16px
+    position absolute
+    top 50%
+    width 32px
+
+.calendar .btn-prev:hover,
+.calendar .btn-next:hover
+    background #cbd1d2
+    color #f9f9f9
+

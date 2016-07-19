@@ -1,0 +1,7 @@
+extends layout
+
+block content
+	each tech in technology.sort('date', 'desc')
+		h1
+			a(href= tech.permalink)= tech.title
+		!= tech.body

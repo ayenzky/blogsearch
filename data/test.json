@@ -1,0 +1,21 @@
+{
+  "pages": [
+    {
+      "url": "/about",
+      "title": "About us new technology"
+    },
+    {
+      "url": "/services"
+    },
+    {
+      "url": "/technology/macbook-pro-review"
+    },
+    {
+      "url": "/technology/new-technology"
+    },
+    {
+      "url": "/fashion/fashion-trends"
+    }
+
+  ]
+}

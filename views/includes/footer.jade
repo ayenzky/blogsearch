@@ -1,0 +1,41 @@
+div#footer
+	section#contact
+		.row
+			.col.s12.m12.l12
+				.row
+					.col.s12.m4.l4
+						h6 ABOUT US
+						p We are an online creative agency. We create super awesome online presences for our potential clients. Check our portfolio out.
+
+					.col.s12.m4.l4.push-l1
+						h6 CONTACT INFO
+						ul#contact-info
+							li
+								i(class="fa fa-map-marker" aria-hidden="true")
+								|		John Smith 269 Main Street London England
+							li
+								i(class="fa fa-envelope" aria-hidden="true")
+								|		contact@goodlayers.com
+							li
+								i(class="fa fa-phone" aria-hidden="true")
+								| 	(11)11-223-4566
+
+
+						h6 FOLLOW US
+						ul#social
+							li
+								a(href="#")
+									i(class="fa fa-facebook", aria-hidden="true")
+							li
+								a(href="#")
+									i(class="fa fa-twitter", aria-hidden="true")
+							li
+								a(href="#")
+									i(class="fa fa-linkedin", aria-hidden="true")
+	#copyright
+		section
+			.row
+				.col.s12.m12.l12
+					p= records.site.sitedata[0].footer
+					//- p Copyright © 2016 by WebriQ. All rights reserved
+
