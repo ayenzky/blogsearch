@@ -17,7 +17,7 @@ readDir = require 'readdir'
 SitemapGenerator = require 'sitemap-generator'
 http = require 'http'
 Finder = require 'fs-finder'
-webriq_sitemap_generator = require 'webriq-sitemap-generator'
+
 
 
 
