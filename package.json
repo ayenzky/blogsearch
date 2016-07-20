@@ -34,6 +34,6 @@
     "url": "^0.11.0",
     "url-parse": "^1.1.1",
     "xml-generator": "1.0.6",
-    "webriq-sitemap-generator": "1.0.4"
+    "webriq-sitemap-generator": "1.0.5"
   }
 }
