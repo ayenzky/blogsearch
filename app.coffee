@@ -23,20 +23,21 @@ es = require 'event-stream'
 
 
 stream = readdirp({
-  root: 'public',
-  fileFilter: ['!single-layout.jade', '!post.jade', '!search.jade', '!index.jade', '!layout.jade', '!.users.yml', '!*.json', '!*.xml', '!*.coffee', '!.gitignore', '!README.html'],
+  root: './',
+  fileFilter: ['!single-layout.jade', '!post.jade', '!search.jade', '!index.jade', '!layout.jade', '!.users.yml', '!*.json', '!*.xml', '!*.coffee', '!.gitignore', '!README.md'],
   directoryFilter: ['!admin', '!includes', '!css', '!img', '!js', '!sass', '!data', '!node_modules', '!public', '!.git', '!release']
 });
 
 result = ""
 
 stream.on 'data', (entry)->
- stream_path = entry.fullPath
+ stream_path = entry.fullParentDir
  stream_file = entry.name
 
  str = stream_path.replace(/\\/g, "/")
+ md =  stream_file.replace(/md/g,  "html")
  result += ""
- result += "<url><loc>" + str + "</loc></url>" + "\n";
+ result += "<url><loc>" + str + "/" + md + "</loc></url>" + "\n";
 
  fs.writeFile './views/sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+result+'</urlset>', (err) -> if err then console.log err
 
