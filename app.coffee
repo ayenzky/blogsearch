@@ -14,7 +14,6 @@ dynamic_content = require 'dynamic-content'
 posts = require 'roots-posts'
 S = require 'underscore.string'
 readDir = require 'readdir'
-SitemapGenerator = require 'sitemap-generator'
 http = require 'http'
 Finder = require 'fs-finder'
 readdirp = require 'readdirp'
@@ -107,7 +106,7 @@ module.exports =
 
 
     js_pipeline(files: 'assets/js/*.coffee'),
-    css_pipeline(files: 'assets/css/*.styl'),
+    css_pipeline(files: 'assets/css/*.styl')
 
 
 
