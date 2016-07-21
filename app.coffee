@@ -23,8 +23,8 @@ express = require 'express'
 app = express()
 crawl = require 'crawl'
 roots_sample = require 'roots-sample-extension'
-
-
+charge = require 'charge'
+WebSocket = require 'faye-websocket'
 
 
 monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
@@ -89,7 +89,7 @@ module.exports =
     js_pipeline(files: 'assets/js/*.coffee'),
     css_pipeline(files: 'assets/css/*.styl'),
 
-    roots_sample()
+
 
 
 
@@ -123,7 +123,7 @@ module.exports =
      stream_file = entry.name
      stream_stat = entry.stat
 
-     console.log(stream_stat);
+
 
      str = stream_path.replace(/\\/g, "/")
      md =  stream_file.replace(/md/g,  "html")
