@@ -6,6 +6,7 @@
     "axis": "0.5.x",
     "clean-urls": "^1.1.5",
     "coffee-script": "^1.0.0",
+    "crawl": "^0.3.1",
     "css-pipeline": "0.3.x",
     "directory-tree": "^1.0.0",
     "dynamic-content": "^0.3.0",
@@ -27,13 +28,14 @@
     "roots-posts": "^0.2.1",
     "roots-records": "^0.5.1",
     "rupture": "0.6.x",
+    "scrapeman": "^1.1.2",
     "sitemap-generator": "^4.1.1",
     "str-replace": "0.0.5",
     "stylus": "0.52.x",
     "underscore.string": "3.3.4",
     "url": "^0.11.0",
     "url-parse": "^1.1.1",
-    "xml-generator": "1.0.6",
-    "webriq-sitemap-generator": "1.0.5"
+    "webriq-sitemap-generator": "1.0.5",
+    "xml-generator": "1.0.6"
   }
 }
