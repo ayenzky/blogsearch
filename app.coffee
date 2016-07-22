@@ -115,14 +115,17 @@ module.exports =
 
   after:->
     stream = readdirp({
-      root: './',
+      root: '.',
       fileFilter: ['!single-layout.jade', '!post.jade', '!search.jade', '!index.jade', '!layout.jade', '!.users.yml', '!*.json', '!*.xml', '!*.coffee', '!.gitignore', '!README.md'],
       directoryFilter: ['!admin', '!includes', '!css', '!img', '!js', '!sass', '!data', '!node_modules', '!public', '!.git', '!release'],
       lstat: true
     });
 
     result = ""
-
+    stream.on 'warn', (err)->
+     console.log('something went wrong when processing an entry', err);
+    stream.on 'error', (err)->
+     console.log('something went fatally wrong and the stream was aborted', err);
     stream.on 'data', (entry)->
      stream_path = entry.path
      stream_file = entry.name
