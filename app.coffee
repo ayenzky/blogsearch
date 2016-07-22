@@ -15,6 +15,8 @@ posts = require 'roots-posts'
 S = require 'underscore.string'
 readDir = require 'readdir'
 http = require 'http'
+https = require 'https'
+httpsAgent = require 'https-agent'
 Finder = require 'fs-finder'
 readdirp = require 'readdirp'
 path = require 'path'
@@ -90,7 +92,7 @@ module.exports =
 
     js_pipeline(files: 'assets/js/*.coffee'),
     css_pipeline(files: 'assets/css/*.styl'),
-
+    webriq_sitemap_generator()
 
 
 
@@ -112,30 +114,27 @@ module.exports =
     "clean_urls": true
 
   after:->
-    run = () ->
-      try
-        stream = readdirp({
-          root: './',
-          fileFilter: ['!single-layout.jade', '!post.jade', '!search.jade', '!index.jade', '!layout.jade', '!.users.yml', '!*.json', '!*.xml', '!*.coffee', '!.gitignore', '!README.md'],
-          directoryFilter: ['!admin', '!includes', '!css', '!img', '!js', '!sass', '!data', '!node_modules', '!public', '!.git', '!release']
-        });
+    stream = readdirp({
+      root: './',
+      fileFilter: ['!single-layout.jade', '!post.jade', '!search.jade', '!index.jade', '!layout.jade', '!.users.yml', '!*.json', '!*.xml', '!*.coffee', '!.gitignore', '!README.md'],
+      directoryFilter: ['!admin', '!includes', '!css', '!img', '!js', '!sass', '!data', '!node_modules', '!public', '!.git', '!release'],
+      lstat: false
+    });
 
-        result = ""
+    result = ""
 
-        stream.on 'data', (entry)->
-         stream_path = entry.fullParentDir
-         stream_file = entry.name
-         stream_stat = entry.stat
+    stream.on 'data', (entry)->
+     stream_path = entry.path
+     stream_file = entry.name
+     stream_stat = entry.stat
 
-         console.log(stream_stat);
 
-         str = stream_path.replace(/\\/g, "/")
-         md =  stream_file.replace(/md/g,  "html")
-         result += ""
-         result += "<url><loc>" + str + "/" + md + "</loc></url>" + "\n";
+     str = stream_path.replace(/\\/g, "/")
+     md =  stream_file.replace(/md/g,  "html")
 
-         fs.writeFile './views/sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+result+'</urlset>', (err) -> if err then console.log err
-      catch e
-        e = error
+     console.log(str);
 
-    setTimeout(run, 20000)
+     result += ""
+     result += "<url><loc>" + str + "</loc></url>" + "\n";
+
+     fs.writeFile './views/sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+result+'</urlset>', (err) -> if err then console.log err
