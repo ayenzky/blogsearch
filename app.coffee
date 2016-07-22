@@ -118,7 +118,7 @@ module.exports =
       root: './',
       fileFilter: ['!single-layout.jade', '!post.jade', '!search.jade', '!index.jade', '!layout.jade', '!.users.yml', '!*.json', '!*.xml', '!*.coffee', '!.gitignore', '!README.md'],
       directoryFilter: ['!admin', '!includes', '!css', '!img', '!js', '!sass', '!data', '!node_modules', '!public', '!.git', '!release'],
-      lstat: false
+      lstat: true
     });
 
     result = ""
