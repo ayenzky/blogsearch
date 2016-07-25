@@ -30,8 +30,9 @@ charge = require 'charge'
 WebSocket = require 'faye-websocket'
 
 
-Finder.from('./').exclude(['*.json','search.jade','sitemap','post','layout','package.json','README','/.git', 'img', 'assets', 'node_modules', 'includes', 'public']).findFiles '*.md', (files) ->
-  console.log(files);
+
+readdirp({root: './public', fileFilter:'*.html'}).on 'data', (entry)->
+ console.log(entry.name)
 
 monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
 
