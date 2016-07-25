@@ -118,7 +118,7 @@ module.exports =
   after:->
 
   before:->
-    readdirp({root: path.join(__dirname), lstat: false, fileFilter: '*.md', directoryFilter: '!node_modules'}
+    readdirp({root: path.join(__dirname), lstat: true, fileFilter: '*.md', directoryFilter: '!node_modules'}
     ,(fileinfo) ->
      console.log(fileinfo.path)
     ,(err,res) ->
