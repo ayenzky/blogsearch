@@ -114,7 +114,7 @@ module.exports =
 
   after:->
 
-    Finder.from('./public').exclude(['*.json','search.jade','sitemap','post','layout','package.json','README','/.git', 'img', 'assets', 'node_modules', 'includes', 'public']).findFiles '*.md', (files) ->
+    Finder.from('./').exclude(['*.json','search.jade','sitemap','post','layout','package.json','README','/.git', 'img', 'assets', 'node_modules', 'includes', 'public']).findFiles '*.md', (files) ->
       console.log(files);
 
 
