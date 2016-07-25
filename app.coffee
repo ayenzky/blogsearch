@@ -31,8 +31,13 @@ WebSocket = require 'faye-websocket'
 
 
 
-readdirp({root: path.join(__dirname), fileFilter:'*.md', directoryFilter: '!node_modules'}).on 'data', (entry)->
- console.log(entry.path)
+
+readdirp({root: '.', fileFilter: '*.md', directoryFilter: '!node_modules'}
+,(fileinfo) ->
+ console.log(fileinfo.path)
+,(err,res) ->
+ return true
+)
 
 monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
 
@@ -118,19 +123,6 @@ module.exports =
 
   after:->
 
-
-
-
-
-    agent = httpsAgent()
-
-    options = {
-     hostname: 'cebunibai.today',
-     protocol: 'http:',
-     port:80,
-     path: '/',
-     method: 'GET'
-    }
 
 
 
