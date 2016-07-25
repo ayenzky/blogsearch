@@ -31,8 +31,8 @@ WebSocket = require 'faye-websocket'
 
 
 
-readdirp({root: './public', fileFilter:'*.html'}).on 'data', (entry)->
- console.log(entry.name)
+readdirp({root: path.join(__dirname), fileFilter:'*.html', directoryFilter: '!node_modules'}).on 'data', (entry)->
+ console.log(entry.path)
 
 monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
 
