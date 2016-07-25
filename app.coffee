@@ -16,7 +16,6 @@ S = require 'underscore.string'
 readDir = require 'readdir'
 http = require 'http'
 https = require 'https'
-httpsAgent = require 'https-agent'
 Finder = require 'fs-finder'
 readdirp = require 'readdirp'
 path = require 'path'
@@ -32,12 +31,7 @@ WebSocket = require 'faye-websocket'
 
 
 
-readdirp({root: '.', lstat: true, fileFilter: '*.md', directoryFilter: '!node_modules'}
-,(fileinfo) ->
- console.log(fileinfo.path)
-,(err,res) ->
- return true
-)
+
 
 monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
 
@@ -122,6 +116,15 @@ module.exports =
     "clean_urls": true
 
   after:->
+
+  before:->
+    readdirp({root: path.join(__dirname), lstat: false, fileFilter: '*.md', directoryFilter: '!node_modules'}
+    ,(fileinfo) ->
+     console.log(fileinfo.path)
+    ,(err,res) ->
+     return true
+    )
+
 
 
 
