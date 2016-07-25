@@ -36,7 +36,6 @@
     "underscore.string": "3.3.4",
     "url": "^0.11.0",
     "url-parse": "^1.1.1",
-    "webriq-sitemap-generator": "1.0.5",
     "xml-generator": "1.0.6"
   }
 }
