@@ -32,7 +32,7 @@ WebSocket = require 'faye-websocket'
 
 
 
-readdirp({root: '.', fileFilter: '*.md', directoryFilter: '!node_modules'}
+readdirp({root: '.', lstat: true, fileFilter: '*.md', directoryFilter: '!node_modules'}
 ,(fileinfo) ->
  console.log(fileinfo.path)
 ,(err,res) ->
