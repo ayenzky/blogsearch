@@ -119,7 +119,7 @@ module.exports =
   after:->
 
   before:->
-    glob '**/*.md', ignore: ['node_modules/**', 'README.*'], stat:true, silent:true, (er, files)->
+    glob '**/*.md', ignore: ['node_modules/**', 'README.*'], stat:true, silent:true, strict:true, (er, files)->
       console.log(files);
 
 
