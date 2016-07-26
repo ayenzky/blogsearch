@@ -27,7 +27,8 @@ roots_sample = require 'roots-sample-extension'
 webriq_sitemap_generator = require 'webriq-sitemap-generator'
 charge = require 'charge'
 WebSocket = require 'faye-websocket'
-
+es = require 'event-stream'
+glob = require 'glob'
 
 
 
@@ -94,7 +95,7 @@ module.exports =
 
     js_pipeline(files: 'assets/js/*.coffee'),
     css_pipeline(files: 'assets/css/*.styl'),
-    webriq_sitemap_generator()
+
 
 
 
@@ -118,12 +119,10 @@ module.exports =
   after:->
 
   before:->
-    readdirp({root: path.join(__dirname), lstat: true, fileFilter: '*.md', directoryFilter: '!node_modules'}
-    ,(fileinfo) ->
-     console.log(fileinfo.path)
-    ,(err,res) ->
-     return true
-    )
+    glob '**/*.md', ignore: ['node_modules/**', 'README.*'], (er, files)->
+      console.log(files);
+
+
 
 
 
