@@ -20,11 +20,7 @@ Finder = require 'fs-finder'
 readdirp = require 'readdirp'
 path = require 'path'
 url = require 'url'
-express = require 'express'
-app = express()
 crawl = require 'crawl'
-roots_sample = require 'roots-sample-extension'
-webriq_sitemap_generator = require 'webriq-sitemap-generator'
 charge = require 'charge'
 WebSocket = require 'faye-websocket'
 es = require 'event-stream'
@@ -119,7 +115,8 @@ module.exports =
   after:->
 
   before:->
-
+    glob '**/*.md', ignore: ['node_modules/**', 'README.*'], stat:true, silent:true, strict:true, (er, files)->
+      console.log(files);
 
 
 
